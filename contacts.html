@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Контакти - Кавʼярня Поруч</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin:0; padding:0; }
+body { font-family:'Poppins', sans-serif; background:#f7f4f2; color:#333; padding-top:72px; }
+
+header {
+  position: fixed;
+  top:0; left:0; right:0;
+  height:64px;
+  background: linear-gradient(135deg,#6b4f3c,#d9b89a);
+  display:flex;
+  align-items:center;
+  z-index:1200;
+  box-shadow:0 4px 12px rgba(0,0,0,0.12);
+}
+nav { width:100%; max-width:1100px; margin:0 auto; padding:0 20px; display:flex; justify-content:space-between; align-items:center; }
+nav .brand { color:#fff; font-family:'Libre Baskerville', serif; font-weight:700; display:flex; align-items:center; gap:10px; }
+nav .brand img { height:36px; display:block; }
+.nav-links { display:flex; gap:18px; list-style:none; }
+.nav-links a { color:#fff; text-decoration:none; padding:6px 10px; border-radius:6px; font-weight:600; transition:0.18s; }
+.nav-links a:hover, .nav-links a.active { background: rgba(255,255,255,0.12); color:#fff; }
+.menu-toggle { display:none; background:none; border:none; font-size:1.6rem; color:#fff; cursor:pointer; }
+
+/* --- Контакти --- */
+.contacts {
+  max-width:900px;
+  margin:40px auto;
+  padding:0 20px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+}
+
+.contact-info {
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.contact-info h2 {
+  font-family:'Libre Baskerville', serif;
+  font-size:2rem;
+  color:#4b2e2e;
+  margin-bottom:10px;
+}
+
+.contact-info p {
+  font-size:1rem;
+  line-height:1.5;
+}
+
+.contact-info a {
+  color:#6b4f3c;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.contact-info a:hover { text-decoration:underline; }
+
+.map-container {
+  width:100%;
+  height:300px;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 4px 12px rgba(0,0,0,0.12);
+}
+
+iframe { width:100%; height:100%; border:0; }
+
+/* --- Футер --- */
+footer {
+  padding:26px 20px;
+  text-align:center;
+  background:#efe9e4;
+  color:#4b2e2e;
+  margin-top:40px;
+  font-size:0.95rem;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+}
+footer a.social-link {
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  color:#4b2e2e;
+  text-decoration:none;
+  font-weight:600;
+  margin-top:6px;
+  transition:0.2s;
+}
+footer a.social-link img { display:block; width:20px; height:20px; }
+footer a.social-link:hover { color:#d9b89a; }
+
+/* --- Мобільна адаптивність --- */
+@media(max-width:800px){
+  .contacts { grid-template-columns:1fr; gap:20px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+<nav>
+  <div class="brand">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/coffee.png" alt="logo"> Кавʼярня Поруч
+  </div>
+  <button class="menu-toggle" aria-label="Відкрити меню" aria-expanded="false">☰</button>
+  <ul class="nav-links" id="mainNav">
+    <li><a href="index.html">Головна</a></li>
+    <li><a href="tips.html">Цікавинки</a></li>
+    <li><a href="menu.html">Меню</a></li>
+    <li><a href="gallery.html">Галерея</a></li>
+    <li><a href="contacts.html" class="active">Контакти</a></li>
+  </ul>
+</nav>
+</header>
+
+<section class="contacts">
+  <div class="contact-info">
+    <h2>Наші контакти</h2>
+    <p>📍 Адреса: Київ, вул. Радунська, 9Б</p>
+    <p>📞 Телефон: <a href="tel:+380939745274">+38 (093)-974-52-74</a></p>
+    <p>📧 Email: <a href="mailto:poruch_coffee@gmail.com">poruch_coffee@gmail.com</a></p>
+    <p>🕒 Години роботи: Пн-Нд 7:00 – 22:00</p>
+    <p>Щастя ближче ніж здається, воно — Поруч!</p>
+  </div>
+  <div class="map-container">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2539.871308170554!2d30.5129443156812!3d50.50736907947914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cf0e3c756f3b%3A0xa8d84b2c88f0efb!2sRadunska%20St%209B%2C%20Kyiv%2C%20Ukraine!5e0!3m2!1sen!2sua!4v1694567890123!5m2!1sen!2sua" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-info">
+    © Кавʼярня Поруч <br>
+    📍 Київ, вул. Радунська, 9Б <br>
+    📞 +38 (093)-974-52-74 <br>
+    Відкриті щодня 7:00 – 22:00 <br>
+    Щастя ближче ніж здається, воно — Поруч!
+  </div>
+  <a href="https://www.instagram.com/poruch_coffee" target="_blank" class="social-link">
+    <img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png" alt="Instagram">
+    poruch_coffee
+  </a>
+</footer>
+
+<script>
+(function(){
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('#mainNav');
+  toggle.addEventListener('click',()=> {
+    const isOpen = nav.classList.toggle('mobile');
+    toggle.setAttribute('aria-expanded', isOpen?'true':'false');
+  });
+  document.addEventListener('click', e => {
+    if(nav.classList.contains('mobile') && !nav.contains(e.target) && !toggle.contains(e.target)){
+      nav.classList.remove('mobile'); toggle.setAttribute('aria-expanded','false');
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

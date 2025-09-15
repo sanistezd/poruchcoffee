@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Галерея - Кавʼярня Поруч</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin:0; padding:0; }
+body { font-family: 'Poppins', sans-serif; background: #f7f4f2; color: #333; padding-top: 72px; }
+
+header { position: fixed; top:0; left:0; right:0; height:64px; background: linear-gradient(135deg,#6b4f3c,#d9b89a); display:flex; align-items:center; z-index:1200; box-shadow:0 4px 12px rgba(0,0,0,0.12);}
+nav { width:100%; max-width:1100px; margin:0 auto; padding:0 20px; display:flex; justify-content:space-between; align-items:center; }
+nav .brand { color:#fff; font-family:'Libre Baskerville', serif; font-weight:700; display:flex; align-items:center; gap:10px; }
+nav .brand img { height:36px; display:block; }
+.nav-links { display:flex; gap:18px; list-style:none; }
+.nav-links a { color:#fff; text-decoration:none; padding:6px 10px; border-radius:6px; font-weight:600; transition:0.18s; }
+.nav-links a:hover, .nav-links a.active { background: rgba(255,255,255,0.12); color:#fff; }
+.menu-toggle { display:none; background:none; border:none; font-size:1.6rem; color:#fff; cursor:pointer; }
+
+.hero {
+  min-height: 40vh;
+  background: url('https://images.unsplash.com/photo-1511920170033-f8396924c348?crop=entropy&cs=tinysrgb&fit=max&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDI0fHxjb2ZmZWV8ZW58MHx8fHwxNjYzNzYyNzI4&ixlib=rb-1.2.1&q=80') center/cover no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(75, 46, 46, 0.42);
+  z-index: 0;
+}
+.hero::after { content:""; position:absolute; inset:0; background: rgba(75,46,46,0.42); z-index:0; }
+.hero h2 { position: relative; z-index:1; font-size:2.4rem; text-shadow:1px 1px 6px rgba(0,0,0,0.35); }
+
+
+.carousel {
+  position: relative;
+  max-width: 1100px;
+  margin: 40px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.slide {
+  min-width: 100%;
+  position: relative;
+}
+.slide img {
+  width:100%;
+  height:500px;
+  object-fit:cover;
+  display:block;
+}
+.slide .overlay {
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,0.25);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-weight:600;
+  font-size:1.5rem;
+}
+
+.prev, .next {
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  color:#fff;
+  border:none;
+  padding:10px 16px;
+  cursor:pointer;
+  border-radius:50%;
+  font-size:1.5rem;
+  z-index:10;
+  transition: background 0.2s;
+}
+.prev:hover, .next:hover { background: rgba(0,0,0,0.7); }
+.prev { left:15px; }
+.next { right:15px; }
+
+footer {
+  padding:26px 20px;
+  text-align:center;
+  background:#efe9e4;
+  color:#4b2e2e;
+  margin-top:40px;
+  font-size:0.95rem;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+}
+footer a.social-link {
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  color:#4b2e2e;
+  text-decoration:none;
+  font-weight:600;
+  margin-top:6px;
+  transition:0.2s;
+}
+footer a.social-link img { display:block; width:20px; height:20px; }
+footer a.social-link:hover { color:#d9b89a; }
+
+@media(max-width:880px){
+  .nav-links { display:none; }
+  .menu-toggle { display:block; }
+  .nav-links.mobile {
+    display:flex; flex-direction:column; gap:10px;
+    position:absolute; top:64px; right:18px;
+    background:#fff; min-width:180px; padding:12px; border-radius:10px; box-shadow:0 8px 24px rgba(0,0,0,0.18);
+    z-index:1400;
+  }
+  .nav-links.mobile a { color:#333; display:block; padding:8px 10px; border-radius:6px; }
+  .slide img { height:300px; }
+  .slide .overlay { font-size:1.2rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+<nav>
+  <div class="brand">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/coffee.png" alt="logo"> Кавʼярня Поруч
+  </div>
+  <button class="menu-toggle" aria-label="Відкрити меню" aria-expanded="false">☰</button>
+  <ul class="nav-links" id="mainNav">
+    <li><a href="index.html">Головна</a></li>
+    <li><a href="tips.html">Цікавинки</a></li>
+    
+
+    <li><a href="menu.html">Меню</a></li>
+    <li><a href="gallery.html" class="active">Галерея</a></li>
+    <li><a href="contacts.html">Контакти</a></li>
+    
+  </ul>
+</nav>
+</header>
+
+<section class="hero">
+  <h2>Галерея нашої кав’ярні</h2>
+</section>
+
+
+<div class="carousel">
+  <div class="slides">
+    <div class="slide">
+      <img src="./assets/images/muffin.jpg" alt="muffin">
+      <div class="overlay">Мафін з кавою 🧁</div>
+    </div>
+    <div class="slide">
+      <img src="./assets/images/menu.jpg" alt="menu">
+      <div class="overlay">Меню ☕</div>
+    </div>
+    <div class="slide">
+      <img src="./assets/images/dog.jpg" height="30px" alt="dog">
+      <div class="overlay">Кнопа 🐶</div>
+    </div>
+    <div class="slide">
+      <img src="./assets/images/cupcake.jpg" alt="Тістечка">
+      <div class="overlay">Тістечка 🧁</div>
+    </div>
+
+<div class="slide">
+      <img src="./assets/images/14.jpg" alt="love">
+      <div class="overlay">День закоханих 💖</div>
+    </div>
+    <div class="slide">
+      <img src="./assets/images/bobsnail.jpg" alt="bobsnail">
+      <div class="overlay">Bob Snail 🐌</div>
+    </div>
+
+
+<div class="slide">
+      <img src="./assets/images/latesnik.jpg" alt="icelatte">
+      <div class="overlay">Айс-лате 🧋</div>
+    </div>
+
+
+
+    <div class="slide">
+      <img src="./assets/images/coffe 2.jpg" alt="inside">
+      <div class="overlay">ПОРУЧ</div>
+    </div>
+
+
+
+
+  </div>
+  <button class="prev">&#10094;</button>
+  <button class="next">&#10095;</button>
+</div>
+
+<footer>
+  <div class="footer-info">
+    © Кавʼярня Поруч <br>
+    📍 Київ, вул. Радунська, 9Б <br>
+    📞 +38 (093)-974-52-74 <br>
+    Відкриті щодня 7:00 – 22:00 <br>
+    Щастя ближче ніж здається, воно — Поруч!
+  </div>
+  <a href="https://www.instagram.com/poruch_coffee" target="_blank" class="social-link">
+    <img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png" alt="Instagram">
+    poruch_coffee
+  </a>
+</footer>
+
+<script>
+
+(function(){
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('#mainNav');
+  function showMobileNav(){nav.classList.add('mobile');}
+  function hideMobileNav(){nav.classList.remove('mobile');}
+  toggle.addEventListener('click',(e)=>{
+    e.stopPropagation();
+    const isOpen = nav.classList.toggle('mobile');
+    toggle.setAttribute('aria-expanded', isOpen?'true':'false');
+  });
+  document.addEventListener('click',(e)=>{
+    if(nav.classList.contains('mobile') && !nav.contains(e.target) && !toggle.contains(e.target)){
+      hideMobileNav();
+      toggle.setAttribute('aria-expanded','false');
+    }
+  });
+  window.addEventListener('resize',()=>{
+    if(window.innerWidth>880){hideMobileNav(); toggle.setAttribute('aria-expanded','false');}
+  });
+})();
+
+
+(function(){
+  const slides = document.querySelector('.slides');
+  const slideCount = document.querySelectorAll('.slide').length;
+  let index = 0;
+  const interval = 7000; 
+
+  function showSlide(i){
+    index = i;
+    slides.style.transform = `translateX(-${index*100}%)`;
+  }
+
+  function nextSlide(){ showSlide((index+1)%slideCount); }
+  function prevSlide(){ showSlide((index-1+slideCount)%slideCount); }
+
+
+  let auto = setInterval(nextSlide, interval);
+
+  
+  document.querySelector('.next').addEventListener('click', ()=>{
+    nextSlide();
+    clearInterval(auto);
+    auto = setInterval(nextSlide, interval);
+  });
+  document.querySelector('.prev').addEventListener('click', ()=>{
+    prevSlide();
+    clearInterval(auto);
+    auto = setInterval(nextSlide, interval);
+  });
+})();
+</script>
+
+</body>
+</html>

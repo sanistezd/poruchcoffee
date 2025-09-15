@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Меню - Кавʼярня Поруч</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#f7f4f2;
+      color:#333;
+      padding-top:72px; }
+
+ 
+    header{
+      position:fixed;
+      top:0; left:0; right:0;
+      height:64px;
+      z-index:1200;
+      background:linear-gradient(135deg, #6b4f3c, #d9b89a);
+      box-shadow:0 4px 12px rgba(0,0,0,0.12);
+      display:flex;
+      align-items:center;
+    }
+    nav{
+      width:100%;
+      max-width:1100px;
+      margin:0 auto;
+      padding:0 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    nav .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:#fff;
+      font-family:'Libre Baskerville', serif;
+      font-size:1.15rem;
+      font-weight:700;
+    }
+    nav .brand img{height:36px; width:auto; display:block;}
+
+    .nav-links{
+      display:flex;
+      gap:18px;
+      list-style:none;
+      align-items:center;
+    }
+    .nav-links a{
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      padding:6px 10px;
+      border-radius:6px;
+      transition:background .18s, color .18s;
+    }
+    .nav-links a.active,
+    .nav-links a:hover{
+      background: rgba(255,255,255,0.12);
+      color:#fff;
+    }
+
+    .menu-toggle{
+      display:none;
+      background:none;
+      border:none;
+      font-size:1.6rem;
+      color:#fff;
+      cursor:pointer;
+    }
+
+   
+    section.menu{
+      max-width:1100px;
+      margin:40px auto;
+      padding:0 20px;
+    }
+    .menu h2{
+      text-align:center;
+      font-size:2em;
+      margin-bottom:25px;
+    }
+    .category{
+      margin-top:30px;
+      font-size:1.5em;
+      border-bottom:2px solid #d9b89a;
+      padding-bottom:5px;
+    }
+    .menu-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+      gap:20px;
+      margin-top:20px;
+    }
+    .menu-item{
+      background:#fffaf6;
+      padding:15px 20px;
+      border-radius:10px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.1);
+      transition:transform .2s, box-shadow .2s;
+    }
+    .menu-item:hover{
+      transform:translateY(-4px);
+      box-shadow:0 6px 12px rgba(0,0,0,0.15);
+    }
+    .menu-item .name{
+      font-weight:bold;
+      font-size:1.2em;
+      margin-bottom:8px;
+    }
+    .sizes{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      font-size:.95em;
+    }
+    .sizes span{
+      background:#f3e7e0;
+      padding:5px 10px;
+      border-radius:6px;
+    }
+
+   
+    footer{
+      padding:26px 20px;
+      text-align:center;
+      background:#efe9e4;
+      color:#4b2e2e;
+      margin-top:40px;
+      font-size:.95rem;
+    }
+    .footer-info{
+      margin-bottom:10px;
+    }
+    .social-link{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      text-decoration:none;
+      color:#4b2e2e;
+      font-weight:600;
+      font-size:0.95rem;
+    }
+    .social-link img{
+      display:block;
+      width:24px;
+      height:24px;
+    }
+
+   
+    @media(max-width:880px){
+      .nav-links{ display:none; }
+      .menu-toggle{ display:block; }
+      .nav-links.mobile{
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+        position:absolute;
+        top:64px;
+        right:18px;
+        background:#fff;
+        min-width:180px;
+        padding:12px;
+        border-radius:10px;
+        box-shadow:0 8px 24px rgba(0,0,0,0.18);
+        z-index:1400;
+      }
+      .nav-links.mobile a{
+        color:#333;
+        padding:8px 10px;
+        display:block;
+        border-radius:6px;
+      }
+      .nav-links.mobile a:hover{ background:#f3f1ee; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="brand">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/coffee.png" alt="logo">
+        Кавʼярня Поруч
+      </div>
+
+      <button class="menu-toggle" aria-label="Відкрити меню" aria-expanded="false">☰</button>
+
+      <ul class="nav-links" id="mainNav">
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="tips.html">Цікавинки</a></li>
+        <li><a href="menu.html" class="active">Меню</a></li>
+        <li><a href="gallery.html">Галерея</a></li>
+      
+        <li><a href="contacts.html">Контакти</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="menu">
+      <h2>Наше меню</h2>
+
+      
+      <h3 class="category">Кава ☕</h3>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <span class="name">Еспресо</span>
+          <div class="sizes"><span>110 мл — 35 грн</span><span>180 мл — 47 грн</span></div>
+        </div>
+        <div class="menu-item">
+          <span class="name">Американо</span>
+          <div class="sizes"><span>180 мл — 35 грн</span><span>270 мл — 47 грн</span></div>
+        </div>
+        <div class="menu-item">
+          <span class="name">Дріп кава</span>
+          <div class="sizes"><span>270 мл — 45 грн</span></div>
+        </div>
+        <div class="menu-item">
+          <span class="name">Капучино</span>
+          <div class="sizes"><span>180 мл — 42 грн</span><span>270 мл — 50 грн</span><span>340 мл — 65 грн</span></div>
+        </div>
+        <div class="menu-item">
+          <span class="name">Лате</span>
+          <div class="sizes"><span>270 мл — 50 грн</span><span>340 мл — 55 грн</span><span>500 мл — 70 грн</span></div>
+        </div>
+        <div class="menu-item">
+          <span class="name">Раф</span>
+          <div class="sizes"><span>270 мл — 60 грн</span><span>340 мл — 75 грн</span></div>
+        </div>
+        <div class="menu-item">
+          <span class="name">Флет-вайт</span>
+          <div class="sizes"><span>270 мл — 60 грн</span></div>
+        </div>
+        <div class="menu-item">
+          <span class="name">Мокко</span>
+          <div class="sizes"><span>270 мл — 57 грн</span><span>340 мл — 65 грн</span></div>
+        </div>
+      </div>
+
+    
+      <h3 class="category">НеКава ☕</h3>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <span class="name">Матча</span>
+          <div class="sizes"><span>270 мл — 65 грн</span><span>340 мл — 80 грн</span></div>
+        </div>
+        <div class="menu-item">
+          <span class="name">Какао</span>
+          <div class="sizes"><span>270 мл — 42 грн</span><span>340 мл — 52 грн</span><span>500 мл — 60 грн</span></div>
+        </div>
+        <div class="menu-item">
+          <span class="name">Какао без цукру</span>
+          <div class="sizes"><span>270 мл — 42 грн</span><span>340 мл — 52 грн</span><span>500 мл — 60 грн</span></div>
+        </div>
+        <div class="menu-item">
+          <span class="name">Гарячий шоколад</span>
+          <div class="sizes"><span>270 мл — 52 грн</span><span>340 мл — 65 грн</span></div>
+        </div>
+        <div class="menu-item">
+          <span class="name">Дитячий лате</span>
+          <div class="sizes"><span>270 мл — 42 грн</span><span>340 мл — 48 грн</span><span>500 мл — 55 грн</span></div>
+        </div>
+        <div class="menu-item">
+          <span class="name">Чай листовий</span>
+          <div class="sizes"><span>340 мл — 37 грн</span><span>500 мл — 42 грн</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-info">
+      © Кавʼярня Поруч <br>
+      📍 Київ, вул. Радунська, 9Б <br>
+      📞 +38 (093)-974-52-74 <br>
+      Відкриті щодня 7:00 – 22:00 <br>
+      Щастя ближче ніж здається, воно — Поруч!
+    </div>
+    <a href="https://www.instagram.com/poruch_coffee" target="_blank" class="social-link">
+      <img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png" alt="Instagram">
+      poruch_coffee
+    </a>
+  </footer>
+
+   <script>
+    (function(){
+      const toggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('#mainNav');
+
+      function showMobileNav() {
+        nav.classList.add('mobile');
+      }
+      function hideMobileNav() {
+        nav.classList.remove('mobile');
+      }
+
+      toggle.addEventListener('click', (e)=>{
+        e.stopPropagation();
+        const isOpen = nav.classList.toggle('mobile');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      document.addEventListener('click', (e)=>{
+        if(nav.classList.contains('mobile') && !nav.contains(e.target) && !toggle.contains(e.target)){
+          hideMobileNav();
+          toggle.setAttribute('aria-expanded','false');
+        }
+      });
+
+      window.addEventListener('resize', ()=>{
+        if(window.innerWidth > 880){
+          hideMobileNav();
+          toggle.setAttribute('aria-expanded','false');
+        }
+      });
+    })();
+  </script>
