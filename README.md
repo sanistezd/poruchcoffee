@@ -5,7 +5,7 @@ Poruch Coffee — це сучасний вебсайт кав’ярні, ств
 
 ---
 
-## 🔗 Демоверсія
+## 🔗 Посилання на сайт
 👉 [Перейти на сайт](https://sanistezd.github.io/poruchcoffee/index.html)
 
 ---
